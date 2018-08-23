@@ -1,14 +1,29 @@
 package tools;
 
+import java.lang.Class;
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.IOException;
+
 public class GameData {
 	
-	protected int lifeCount = 10;
-	protected int casesLenght = 4;
-	//nbAllowed comprends le 0, le noimbre maximal pour un NbAllowed de 6 est 5
-	protected int nbAllowed = 6;
-	protected boolean devMode = false;
+	Properties prop = new Properties();
+	InputStream input = null;{
 	
-	public int attackerNb = 0;
+	try {
+		
+		input = new FileInputStream("config.properties");
+		prop.load(input);
+	}catch(IOException e) {
+		e.printStackTrace();
+	}
+	}
+	
+	protected int lifeCount = Integer.parseInt(prop.getProperty("lifeCount"));
+	protected int casesLenght = Integer.parseInt(prop.getProperty("casesLenght"));
+	protected int nbAllowed = Integer.parseInt(prop.getProperty("nbAllowed"));
+	protected boolean devMode = Boolean.parseBoolean(prop.getProperty("devMode"));
 	
 	public int getLifeCount() {
 		return lifeCount;

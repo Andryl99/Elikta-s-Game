@@ -7,6 +7,13 @@ public class HumanSN extends Human{
 		String returnedAnswer = "";
 		String answer = "";
 		System.out.println("Please enter the corresponding answer \n= if the number is correct\n- if the number is smaller\n+ if the number is bigger\nEnter You win if the sequence is correct");
+		
+		
+		
+		
+		
+		
+		
 		answer = sc.nextLine();
 		
 		for(int i=0; i<attackerSequence.length; i++) {
