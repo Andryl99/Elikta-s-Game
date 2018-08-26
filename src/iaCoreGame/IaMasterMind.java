@@ -50,7 +50,7 @@ public class IaMasterMind extends Computer{
 			//si le nombre est absent, on remplie le boolean à l'index indiqué d'un true, empêchant l'IA de reproposer ce chiffre
 			if(previousAnswer.charAt(i) == 'o' || previousAnswer.charAt(i) == 'O') {
 				for(int j=0; j<gameD.getCasesLenght();j++) {
-					availablePossibilities[j][previousSequence[i]] = true;
+					availablePossibilities[i][previousSequence[i]] = true;
 				}
 			}
 			

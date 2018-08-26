@@ -6,7 +6,7 @@ public class HumanMM extends Human{
 	public String giveAnAnswer(int[] attackerSequence, int[] defenderSequence) {
 		String answer = "";
 		
-		System.out.println("Please enter the corresponding answer\nx if the number is correct\no if the number does not exist in the sequence\nm if the number is not at right place\nEnter \"you win\" if the complete sequence is correct.");
+		System.out.println("Please enter the corresponding answer\nx if the number is correct\no if the number is incorrect\nm if the number is not at right place\nEnter \"you win\" if the complete sequence is correct.");
 		
 		
 		boolean isValidAnswer;
@@ -20,7 +20,7 @@ public class HumanMM extends Human{
 			isValidAnswer = false;
 			if(answer.length()>gameD.getCasesLenght()||answer.length()<gameD.getCasesLenght()) {
 				System.out.println("You entered an invalid sequence, try again !");
-				isValidAnswer = true;
+				isValidAnswer = false;
 			}
 		
 			for(int i=0; i<answer.length(); i++) {

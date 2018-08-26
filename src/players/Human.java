@@ -40,25 +40,33 @@ public abstract class Human implements Players {
 		String playerSequence = "";
 		int[] playerSequenceTab = new int[gameD.getCasesLenght()];
 		
-		boolean isValidSequence = false;
+		int isValidSequence = 0;
+		int isValidLenght = 0;
 		do{
 			
-			isValidSequence = false;
+			isValidSequence = 0;
+			
 			playerSequence = sc.nextLine();
-			if(playerSequence.length() > gameD.getCasesLenght()||playerSequence.length()<gameD.getCasesLenght()) {
-				System.out.println("You entered a wrong combinaison, try again");
-			}
-			for(int i=0; i<gameD.getCasesLenght();i++) {
+			
+			for(int i=0; i<playerSequence.length();i++) {
 				if(Character.getNumericValue(playerSequence.charAt(i))>gameD.getNbAllowed()) {
-					System.out.println("You entered an invalid digit (max number alllowed : "+gameD.getNbAllowed());
+					System.out.println("You entered an invalid digit (max number allowed : "+gameD.getNbAllowed()+")");
 					break;
 				}
 				if(i==gameD.getCasesLenght()) {
-					isValidSequence = true;
+					isValidSequence ++;
 				}
 			}
+			
+			isValidLenght = 0;
+			
+			if(playerSequence.length() > gameD.getCasesLenght()||playerSequence.length()<gameD.getCasesLenght()) {
+				System.out.println("You entered a wrong combinaison, try again");
+			}
+			else
+				isValidLenght ++;
 
-		}while(isValidSequence = false);
+		}while(isValidSequence != 1 && isValidLenght != 1);
 		
 		
 		
