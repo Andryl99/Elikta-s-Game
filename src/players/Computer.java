@@ -2,8 +2,10 @@ package players;
 import java.util.Random;
 import tools.GameData;
 
+
+
 public abstract class Computer implements Players{
-	
+		
 	GameData gameD = new GameData();
 	Random rand = new Random();
 	

@@ -106,6 +106,10 @@ public class MagicalNumber{
 		char computerAnswer = ' ';
 		System.out.println("Secret number has been generated between 0 and "+nbAllowed+", try to find it !");
 		
+		if(devMode = true) {
+			System.out.println("Dev mode activated, the target number is : "+targetNb);
+		}
+		
 		do {
 			System.out.println("You have "+lifeCount+" life left !");
 			

@@ -1,6 +1,11 @@
 package players;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class HumanMM extends Human{
+	
+	static final Logger logger = LogManager.getLogger();
 
 	@Override
 	public String giveAnAnswer(int[] attackerSequence, int[] defenderSequence) {
@@ -20,12 +25,14 @@ public class HumanMM extends Human{
 			isValidAnswer = false;
 			if(answer.length()>gameD.getCasesLenght()||answer.length()<gameD.getCasesLenght()) {
 				System.out.println("You entered an invalid sequence, try again !");
+				logger.info("Human player entered a digit higher or lower than casesLenght ");
 				isValidAnswer = false;
 			}
 		
 			for(int i=0; i<answer.length(); i++) {
 				if(answer.charAt(i)!='x'&& answer.charAt(i)!='X'&& answer.charAt(i)!='O'&& answer.charAt(i)!='o'&& answer.charAt(i)!='m'&& answer.charAt(i)!='M') {
 					System.out.println("You entered an invalid sequence, try again !");
+					logger.info("Human player entered an invalid answer (char not allowed)\n");
 					break;
 				}
 				else {

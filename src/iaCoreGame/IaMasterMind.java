@@ -6,7 +6,12 @@ import players.Computer;
 import tools.GameData;
 import tools.MastermindBreak;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class IaMasterMind extends Computer{
+	
+	static final Logger logger = LogManager.getLogger();
 	
 	Random rand = new Random();
 	
@@ -25,6 +30,7 @@ public class IaMasterMind extends Computer{
 		
 		//on récupère le tableau de toute les possibilitées 
 		possibilities = mBreak.generateAllPossibilities();
+		logger.info("All possibilities have been generated\n");
 		//et le tableau de boolean associé
 		availablePossibilities = mBreak.generateBoolTab();
 		
@@ -121,7 +127,7 @@ public class IaMasterMind extends Computer{
 			}
 		}
 		
-		return correctNb+" corrects, "+presentNb+" prrésents";
+		return correctNb+" corrects, "+presentNb+" presents";
 	}
 
 }

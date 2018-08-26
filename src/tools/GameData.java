@@ -1,6 +1,5 @@
 package tools;
 
-import java.lang.Class;
 import java.util.Properties;
 import java.io.FileInputStream;
 import java.io.InputStream;
