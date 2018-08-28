@@ -1,5 +1,6 @@
 package tools;
 
+//énumération de tout les menus de l'application
 public enum Menus {
 	
 	INTROMENU ("***************************************\n"

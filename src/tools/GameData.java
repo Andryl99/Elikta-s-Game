@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.IOException;
 
+//classe stockant et distribuant tout les données indispensables aux jeux
 public class GameData {
 	
 	Properties prop = new Properties();

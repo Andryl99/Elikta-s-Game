@@ -8,6 +8,7 @@ public class HumanMM extends Human{
 	static final Logger logger = LogManager.getLogger();
 
 	@Override
+	//override de la méthode giveAnAnswer pour l'adaptée au jeux mastermind
 	public String giveAnAnswer(int[] attackerSequence, int[] defenderSequence) {
 		String answer = "";
 		

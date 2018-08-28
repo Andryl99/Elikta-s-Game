@@ -51,8 +51,6 @@ public class IaSecretNumbers extends Computer{
 						guessing[i] = 5;
 					if(previousSequence[i] == 3)
 						guessing[i] = 4;
-					if(previousSequence[i] == 3)
-						guessing[i] = 4;
 					if(previousSequence[i] == 2)
 						guessing[i] = 3;
 					if(previousSequence[i] == 1)
@@ -95,6 +93,7 @@ public class IaSecretNumbers extends Computer{
 		String answer = "";
 		int asWon = 0;
 	
+		//algorythme de comparaison des deux séquences en paramètres, retourne une réponse associée
 		for(int i=0; i<attackerSequence.length; i++) {
 			if(attackerSequence[i] == defenderSequence[i]) {
 				answer = answer +"=";

@@ -2,6 +2,10 @@ package iaCoreGame;
 
 public class IaMasterMindDuel extends IaMasterMind{
 	
+	/*
+	 * légère modification des méthodes pour permettre de créer une IA adaptée au mode duel
+	 */
+	
 	public String giveAnAnswer(int[] attackerSequence, int[] defenderSequence) {
 		
 		String answer = "";

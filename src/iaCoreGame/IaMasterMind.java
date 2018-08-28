@@ -18,7 +18,14 @@ public class IaMasterMind extends Computer{
 	GameData gameD = new GameData();
 	MastermindBreak mBreak = new MastermindBreak();
 
+	//algorythme de résolution du mastermind.
 	public int[] tryToGuess(int turnNb, int[] previousSequence, String previousAnswer) {
+		
+		/*
+		 * Explication de l'algorythme dans le fichierr PPT présent dans le dossier du jeux
+		 * 
+		 * 
+		 */
 		
 		
 		int[] guess = new int[gameD.getCasesLenght()];
@@ -27,26 +34,27 @@ public class IaMasterMind extends Computer{
 		int[][] possibilities = new int[gameD.getCasesLenght()][gameD.getNbAllowed()];
 		boolean[][] availablePossibilities = new boolean[gameD.getCasesLenght()][gameD.getNbAllowed()];
 		
-		
-		//on récupère le tableau de toute les possibilitées 
+		//on récupère le tableau de toute les possibilitées 		
 		possibilities = mBreak.generateAllPossibilities();
-		logger.info("All possibilities have been generated\n");
+		if(turnNb == 0) {
+			logger.info("All possibilities have been generated\n");
+		}
 		//et le tableau de boolean associé
 		availablePossibilities = mBreak.generateBoolTab();
 		
+		//si c'est le premier tour (auccune réponse du défenseur n'a été donnée) on génère une réponse permettant de proposer des chiffres aléatoire a tout les emplacements
 		if(turnNb == 0) {
 			for(int i=0; i<gameD.getCasesLenght(); i++) {
 				String firstAnswer = "o";
 				previousAnswer = previousAnswer + firstAnswer;
-			}
-			
+			}			
 		}
 		
 			
 		for(int i=0; i<gameD.getCasesLenght(); i++) {
 			
 			//si on indique que le chiffre en i est correct,
-			//on remplie le tableau correspondant de la bonne valeur, pour ne proposer que cette valeur correcte
+			//on remplie le tableau correspondant de la bonne valeur, pour ne proposer que cette valeur correcte 
 			if(previousAnswer.charAt(i) == 'x' || previousAnswer.charAt(i) == 'X'){
 				for(int j=0; j<gameD.getNbAllowed(); j++) {
 					possibilities[i][j] = previousSequence[i];
@@ -60,6 +68,7 @@ public class IaMasterMind extends Computer{
 				}
 			}
 			
+			
 			if(previousAnswer.charAt(i) == 'm' || previousAnswer.charAt(i) == 'M') {
 				availablePossibilities[i][previousSequence[i]] = true;
 			}
@@ -68,6 +77,7 @@ public class IaMasterMind extends Computer{
 		
 		
 		
+		//boucle permettant de proposer un nombre aléatoire, de le vérifier, et de le proposer si il n'a pas déjà été proposé précédemment.
 		boolean nbIsCorrect;
 		int nbProposed = 0;
 		
@@ -105,19 +115,19 @@ public class IaMasterMind extends Computer{
 		int correctNb = 0;
 		int presentNb = 0;
 		
-		//utilisation d'un tableau de boolean initié à false pour vérification de la séquence
+		//utilisation d'un tableau de boolean pour éviter les doublons lors de la vérification de la proposition
 		boolean[] boolSequ = new boolean[gameD.getCasesLenght()];
 		for(int i=0; i<boolSequ.length; i++) {
 			boolSequ[i] = false;		
 		}
 		
+		//boucles qui permettent de comptabilliser les nombres corrects et/ou mal placés
 		for(int i=0; i<boolSequ.length; i++) {
 			if(attackerSequence[i] == defenderSequence[i]) {
 				correctNb++;
 				boolSequ[i] = true;
 			}			
-		}
-		
+		}		
 		for(int i=0; i<gameD.getCasesLenght(); i++) {
 			for(int j=0; j<gameD.getCasesLenght();j++) {
 				if(attackerSequence[i] == defenderSequence[j] && i!=j && boolSequ[j] == false) {

@@ -6,6 +6,8 @@ public class IaMagicalNumber {
 	
 	GameData gameD = new GameData();
 
+	
+	//méthode permettant à l'IA de résoudre une partie de Magical Number, algorythme très simple et volontairement "lourd" pour permettre de s'adapter aux différents paramètres choisis dans le config.properties.
 	public int guessMagicalNumber(char defenderAnswer, int previousTry) {
 		
 		if(defenderAnswer == 'B' || defenderAnswer == 'b') {

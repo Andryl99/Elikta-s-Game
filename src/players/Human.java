@@ -32,6 +32,7 @@ public abstract class Human implements Players {
 	}
 
 
+	//méthode demandant au joueur humain d'entrer la séquence secrète qu'il souhaite pour le jeu choisis
 	@Override
 	public int[] generateSequence() {
 		
@@ -77,12 +78,14 @@ public abstract class Human implements Players {
 	}
 	
 	@Override
+	//retourne message défaite du joueur humain
 	public String lostMessage() {
 		return "\nYou lost, better luck next time !";
 	}
 	
 	
 	@Override
+	//retourrne message de victoire du joueur humain
 	public String winningMessage() {
 		return "You win, congratulations !";
 	}

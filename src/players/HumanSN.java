@@ -2,7 +2,8 @@ package players;
 
 public class HumanSN extends Human{
 
-
+	@Override
+	//override de la méthode giveAnAnswer pour l'adapter au jeux SecretNumbers
 	public String giveAnAnswer(int[] attackerSequence, int[] defenderSequence) {
 		String returnedAnswer = "";
 		String answer = "";
