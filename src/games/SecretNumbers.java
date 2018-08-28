@@ -94,12 +94,13 @@ public class SecretNumbers extends Game{
 				defenderSequence = defender.tryToGuess(turnNb, attackerSequence, iaDuelAnswer);
 				iaDuelAnswer = iaDuel.giveAnAnswer(defenderSequence, iaDuelSequence);
 				
+				System.out.println("The answer to your proposal is : "+iaDuelAnswer);
 				if(iaDuelAnswer.charAt(0) == 'Y' || iaDuelAnswer.charAt(0) == 'y'){
-					System.out.println(attacker.winningMessage());
+					System.out.println(defender.winningMessage());
 					break;
 				}
 				
-				System.out.println("The answer to your proposal is : "+iaDuelAnswer);
+				
 				lifeCount--;
 				
 				

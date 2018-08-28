@@ -18,8 +18,10 @@ public abstract class Human implements Players {
 		int check = 0;
 		do {			
 			playerSequence = sc.nextLine();
-			if(playerSequence.length() > gameD.getCasesLenght() || playerSequence.length()<gameD.getCasesLenght())
+			
+			if(playerSequence.length() > gameD.getCasesLenght() || playerSequence.length()<gameD.getCasesLenght()) {
 				System.out.println("You entered a wrong combinaison, try again");
+			}
 			else
 				check = 1;
 		}while(check == 0);

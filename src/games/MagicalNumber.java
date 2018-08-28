@@ -33,14 +33,7 @@ public class MagicalNumber{
 			System.out.println("Please enter a number between 0 and "+nbAllowed+" :");
 			
 			boolean correctAnswer = false;
-			do {
-				attackerNb = Character.getNumericValue(sc.nextLine().charAt(0));
-				if (attackerNb > nbAllowed || attackerNb < 0)
-					System.out.println("You entered a non valid answer, try again");
-				else
-					correctAnswer = true;
-			}while(correctAnswer = false);
-	
+		
 			if(attackerNb<defenderNb)
 				System.out.println("My number is bigger !");
 			if(attackerNb>defenderNb)
@@ -75,13 +68,8 @@ public class MagicalNumber{
 			System.out.println("Please enter the corresponding answer :\n\"bigger\" for higher number\n\"smaller\" for smaller number\n\"correct for a good answer");
 			boolean correctAnswer = false;
 			char defenderAnswer;
-			do {
-				defenderAnswer = sc.nextLine().charAt(0);
-				if(defenderAnswer !='b' || defenderAnswer !='B' || defenderAnswer !='S' || defenderAnswer != 's' || defenderAnswer != 'C'  || defenderAnswer != 'c')
-					System.out.println("You entered a non valid answer, try again");
-				else
-					correctAnswer = true;
-			}while(correctAnswer = false);
+			
+			defenderAnswer = sc.nextLine().charAt(0);
 			
 			if(defenderAnswer == 'c' || defenderAnswer == 'C') {
 				System.out.println("I win like a boss !");

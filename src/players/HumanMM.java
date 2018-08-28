@@ -26,7 +26,6 @@ public class HumanMM extends Human{
 			isValidAnswer = false;
 			if(answer.length()>gameD.getCasesLenght()||answer.length()<gameD.getCasesLenght()) {
 				System.out.println("You entered an invalid sequence, try again !");
-				logger.info("Human player entered a digit higher or lower than casesLenght ");
 				isValidAnswer = false;
 			}
 		

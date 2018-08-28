@@ -34,12 +34,17 @@ public class Main {
 					System.out.println(Menus.MODECHOICE.toString());
 					char modeChoice = sc.nextLine().charAt(0);
 
-						if(modeChoice == '1')
-							secretNumbers.launch(new HumanSN(), new IaSecretNumbers(), null, duelMode);			
-						if(modeChoice =='2') 
+						if(modeChoice == '1') {
+							System.out.println(Rules.SECRETNUMBERSAT.toString());
+							secretNumbers.launch(new HumanSN(), new IaSecretNumbers(), null, duelMode);		
+						}
+						if(modeChoice =='2') {
+							System.out.println(Rules.SECRETNUMBERSDF.toString());
 							secretNumbers.launch(new IaSecretNumbers(), new HumanSN(), null, duelMode);
+						}
 						if(modeChoice == '3') {
 							duelMode = 1;
+							System.out.println(Rules.SECRETNUMBERDD.toString());
 							secretNumbers.launch(new HumanSN(), new IaSecretNumbers(), new IaSecretNumbers(), duelMode);
 							duelMode = 0;
 						}
@@ -58,12 +63,18 @@ public class Main {
 					System.out.println(Menus.MODECHOICE.toString());
 					char modeChoice = sc.nextLine().charAt(0);
 				
-					if(modeChoice == '1')
+					if(modeChoice == '1') {
+						System.out.println(Rules.MAGICALNUMBERAT.toString());
 						magicalNumber.attackerMode();
-					if(modeChoice == '2')
+					}
+					if(modeChoice == '2') {
+						System.out.println(Rules.MAGICALNUMBERDF.toString());
 						magicalNumber.defensorMode();
-					if(modeChoice == '3')
+					}
+					if(modeChoice == '3') {
+						System.out.println(Rules.MAGICALNUMBERDD.toString());
 						magicalNumber.duelMode();
+					}
 				
 					System.out.println(Menus.RETRYCHOICE.toString());
 					retryChoice = sc.nextLine().charAt(0);
@@ -79,12 +90,17 @@ public class Main {
 					System.out.println(Menus.MODECHOICE.toString());
 					char modeChoice = sc.nextLine().charAt(0);
 			
-					if(modeChoice == '1')
+					if(modeChoice == '1') {
+						System.out.println(Rules.MASTERMINDAT.toString());
 						masterMind.launch(new HumanMM(), new IaMasterMind(), null, duelMode);
-					if(modeChoice == '2')
+					}
+					if(modeChoice == '2') {
+						System.out.println(Rules.MASTERMINDDF.toString());
 						masterMind.launch(new IaMasterMind(), new HumanMM(), null, duelMode);
+					}
 					if(modeChoice =='3') {
 						duelMode = 1;
+						System.out.println(Rules.MASTERMINDDD.toString());
 						masterMind.launch(new HumanMM(), new IaMasterMind(), new IaMasterMindDuel(), duelMode);
 						duelMode = 0;
 					}
