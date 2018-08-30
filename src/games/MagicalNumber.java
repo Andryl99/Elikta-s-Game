@@ -32,6 +32,7 @@ public class MagicalNumber{
 			System.out.println("You have "+lifeCount+" life left");
 			System.out.println("Please enter a number between 0 and "+nbAllowed+" :");
 			
+			attackerNb = sc.nextInt();
 			boolean correctAnswer = false;
 		
 			if(attackerNb<defenderNb)

@@ -26,7 +26,7 @@ public class SecretNumbers extends Game{
 		
 		if(duelMode == 0) {
 			defenderSequence = defender.generateSequence();
-			if(devMode = true) {
+			if(devMode == true) {
 				System.out.print("Dev mode activated, the sequence is : ");
 				for(int i:defenderSequence) {
 					System.out.print(i);
