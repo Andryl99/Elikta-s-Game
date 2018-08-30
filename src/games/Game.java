@@ -18,21 +18,7 @@ public abstract class Game {
 	protected int casesLenght = gameD.getCasesLenght();
 	
 	public abstract void launch(Players attacker, Players defender, Players iaDuel, int duelMode);
-	
-	public void setPlayers(Players attacker, Players defender) {
-		this.attacker = attacker;
-		this.defender = defender;
-	}
-	
-	public Players getAttacker() {
-		return this.attacker; 
-	}
-	
-	public Players getDefender() {
-		return this.defender;
-	}
-	
-	
+
 	
 
 }

@@ -12,12 +12,14 @@ public enum Menus {
 			+ "1 - Secret Number\n"
 			+ "2 - Magical Numbers\n"
 			+ "3 - Mastermind\n"
-			+ "4 - Quit the app"),
+			+ "4 - Quit the app\n"
+			+ "Please enter the game number :"),
 	
 	MODECHOICE ("\nPlease pick a game mode :\n"
 			+ "1 - Attacker Mode : Play against the IA\n"
 			+ "2 - Defensor Mode : The IA play against you\n"
-			+ "3 - Duel Mode : Play a duel against the IA"),
+			+ "3 - Duel Mode : Play a duel against the IA"
+			+ "Please enter the game mode number :"),
 	
 	RETRYCHOICE ("***************************************"
 			+ "\nWhat will you do now ?\n"

@@ -17,12 +17,14 @@ public class IaMasterMind extends Computer{
 	
 	GameData gameD = new GameData();
 	MastermindBreak mBreak = new MastermindBreak();
+	int[][] possibilities = new int[gameD.getCasesLenght()][gameD.getNbAllowed()];
+	boolean[][] availablePossibilities = new boolean[gameD.getCasesLenght()][gameD.getNbAllowed()];
 
 	//algorythme de résolution du mastermind.
 	public int[] tryToGuess(int turnNb, int[] previousSequence, String previousAnswer) {
 		
 		/*
-		 * Explication de l'algorythme dans le fichierr PPT présent dans le dossier du jeux
+		 * Explication de l'algorythme dans le fichierr PDF présent dans le dossier du jeux
 		 * 
 		 * 
 		 */
@@ -31,18 +33,19 @@ public class IaMasterMind extends Computer{
 		int[] guess = new int[gameD.getCasesLenght()];
 		
 		//on génère un tableau à deux dimension qui contiendra un tableau à 2 dimensions généré par la méthode generateAllPossibilities();
-		int[][] possibilities = new int[gameD.getCasesLenght()][gameD.getNbAllowed()];
-		boolean[][] availablePossibilities = new boolean[gameD.getCasesLenght()][gameD.getNbAllowed()];
+		
 		
 		//on récupère le tableau de toute les possibilitées 		
-		possibilities = mBreak.generateAllPossibilities();
-		if(turnNb == 0) {
-			logger.info("All possibilities have been generated\n");
-		}
 		//et le tableau de boolean associé
-		availablePossibilities = mBreak.generateBoolTab();
+		if(turnNb == 0) {
+			possibilities = mBreak.generateAllPossibilities();
+			logger.info("All possibilities have been generated\n");
+			availablePossibilities = mBreak.generateBoolTab();
+		}
 		
-		//si c'est le premier tour (auccune réponse du défenseur n'a été donnée) on génère une réponse permettant de proposer des chiffres aléatoire a tout les emplacements
+		
+		
+		//si c'est le premier tour (aucune réponse du défenseur n'a été donnée) on génère une réponse permettant de proposer des chiffres aléatoire a tout les emplacements
 		if(turnNb == 0) {
 			for(int i=0; i<gameD.getCasesLenght(); i++) {
 				String firstAnswer = "o";
@@ -63,9 +66,10 @@ public class IaMasterMind extends Computer{
 			
 			//si le nombre est absent, on remplie le boolean à l'index indiqué d'un true, empêchant l'IA de reproposer ce chiffre
 			if(previousAnswer.charAt(i) == 'o' || previousAnswer.charAt(i) == 'O') {
-				for(int j=0; j<gameD.getCasesLenght();j++) {
-					availablePossibilities[i][previousSequence[i]] = true;
-				}
+				availablePossibilities[i][previousSequence[i]] = true;
+				/*for(int j=0; j<gameD.getCasesLenght();j++) {
+					
+				}*/
 			}
 			
 			
@@ -92,7 +96,10 @@ public class IaMasterMind extends Computer{
 					nbProposed = nbTemp;
 					nbIsCorrect = true;
 				}
-			}while(nbIsCorrect = false);
+				else 
+					nbIsCorrect = false;
+				
+			}while(nbIsCorrect == false);
 			
 			guess[i] = nbProposed;
 		}
